@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <title>CMD - Hjelpeside for IT Strand</title>
+
+        
+    </head>
+    <body>
+        <div class="navBar">
+            <a href="home.html"><div class="left"><div class="logo"><img class="logoImg" alt="Strand vgs" src="https://png.pngtree.com/png-vector/20250902/ourmid/pngtree-minimalist-white-computer-monitor-icon-on-black-background-png-image_17214120.webp">Strand.IT</div></div></a>            <div class="right">Knapp?</div>
+        </div>
+        <div class="content">
+            <h1>CMD/PowerShell Commands</h1>
+            <p><strong>Kjør CMD som administrator!</strong></p>
+
+            
+            <div id="cmd-container"></div>
+        </div>
+        <script>
+            const sheetUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQl4dHI0s3-qTK0QCnVSnVLyrjSIqtmb81qHASNUYAwR-kYEgOfBve_W94fflhFTs8Yg8v4j2gJYL3K/pub?output=csv";
+        
+            async function loadCommands() {
+                const res = await fetch(sheetUrl);
+                const text = await res.text();
+
+                // Del CSV i linjer
+                const lines = text.trim().split("\n");
+                const headers = lines.shift().split(","); // ["Kategori","Command","Beskrivelse"]
+
+                const data = lines.map(line => {
+                    const [category, command, description] = line.split(",");
+                    return { category, command, description };
+                });
+
+                // Grupper etter kategori
+                const categories = {};
+                data.forEach(item => {
+                    if (!categories[item.category]) categories[item.category] = [];
+                    categories[item.category].push(item);
+                });
+
+                const container = document.getElementById("cmd-container");
+
+                for (const category in categories) {
+                    const items = categories[category];
+
+                    let html = `<table>
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="2" style="padding:0;">
+                                                <div class="tableHeading"><h2>${category}</h2></div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Command</strong></td>
+                                            <td><strong>Beskrivelse</strong></td>
+                                        </tr>`;
+
+                    items.forEach(cmd => {
+                        html += `<tr>
+                                    <td><div class="command">${cmd.command}</div></td>
+                                    <td>${cmd.description}</td>
+                                </tr>`;
+                    });
+
+                    html += `</tbody></table><br>`;
+                    container.innerHTML += html;
+                }
+
+                // Copy-click
+                document.querySelectorAll(".command").forEach(cmd => {
+                    cmd.addEventListener("click", () => {
+                        navigator.clipboard.writeText(cmd.textContent);
+                        const original = cmd.textContent;
+                        cmd.textContent = "Copied!";
+                        setTimeout(() => cmd.textContent = original, 1000);
+                    });
+                });
+            }
+
+            loadCommands();
+        </script>
+    </body>
+</html>

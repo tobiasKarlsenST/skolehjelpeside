@@ -1,0 +1,166 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+:root{
+    --headings: 'Times New Roman', Times, serif;
+    --gap-padding: 12px;
+}
+
+body{
+    
+}
+
+.navBar{
+    background-color: black;
+    display:  flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 15%;
+    color: white;
+
+}
+
+.logo{
+    font-size: 25px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    font-family: var(--headings);
+}
+
+h1{
+    font-family: var(--headings);
+}
+
+.logoImg{
+    height: 30px;
+}
+
+.content{
+    padding: 50px 15%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-padding);
+}
+
+.linkGrid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: var(--gap-padding);
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+
+.gridItem{
+    background-color: black;
+    border-radius: 10px;
+    height: 200px;
+    padding: var(--gap-padding);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-padding);
+    align-items: center;
+    justify-content: center;
+}
+
+.gridIcon{
+    width: 50px;
+    filter:invert();
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+.cmdList{
+    background-color: black;
+    color: white;
+    padding: var(--gap-padding);
+    line-height: 30px;
+}
+
+.cmdList li {
+    border-bottom: 1px solid white;
+    display: flex;
+    justify-content: space-between;
+}
+
+.programmerGrid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gap-padding);
+    text-align: center;
+}
+
+.programmerGrid li{
+    background-color: black;
+    color: white;
+    padding: var(--gap-padding);
+    border-radius: var(--gap-padding);
+    list-style: none;
+}
+
+.command{
+    font-weight: bold;
+    background-color: #f5f0ed;
+    width: fit-content;
+    padding: 5px;
+    border: 1px solid #c4bebc;
+    cursor: pointer;
+}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+td{
+    padding: 5px;
+}
+
+.tableHeading{
+    background-color: black;
+    color: white;
+    display: flex;
+    width: 100%;
+    column-span: 2;
+    padding: 5px 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tableUnderHeadings{
+    background-color: rgb(226, 226, 226);
+}
+
+.dropdown{
+    filter: invert();
+    width: 40px;
+}
+
+.lenkerCont{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gap-padding);
+}
+
+.lenker{
+    color: #1E88E5 !important; 
+    font-style: underline;
+    text-decoration: underline !important;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
