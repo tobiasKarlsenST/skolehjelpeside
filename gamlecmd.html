@@ -1,0 +1,31 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <link rel="stylesheet" href="styles.css"> 
+        <title>CMD - Hjelpeside for IT Strand</title> 
+    </head> 
+    <script> 
+    // Velg alle elementer med "command" classen const commands = document.querySelectorAll('.command'); commands.forEach(cmd => { cmd.addEventListener('click', () => { // Kopier teksten i div navigator.clipboard.writeText(cmd.textContent).then(() => { // Visual feedback const original = cmd.textContent; cmd.textContent = 'Copied!'; setTimeout(() => { cmd.textContent = original; }, 1000); }).catch(err => { console.error('Failed to copy text: ', err); }); }); }); 
+    </script> 
+    <body> 
+        <div class="navBar"> 
+            <a href="home.html">
+                <div class="left">
+                    <div class="logo">
+                        <img class="logoImg" alt="Strand vgs" src="https://png.pngtree.com/png-vector/20250902/ourmid/pngtree-minimalist-white-computer-monitor-icon-on-black-background-png-image_17214120.webp">Strand.IT
+                    </div>
+                </div>
+            </a> 
+            <div class="right">Knapp?</div> 
+        </div> 
+        <div class="content"> 
+            <h1>CMD/PowerShell Commands</h1> 
+            <p><strong>Kjør CMD som administrator!</strong></p> 
+            <table> 
+                <tbody> 
+                    <tr> 
+                        <td colspan="2" style="padding: 0;">
+                            <div class="tableHeading">
+                                <h2>Commands som skanner og fikser korrupte filer</h2>
+                                <img src="https://www.svgrepo.com/show/509905/dropdown-arrow.svg" class="dropdown"/>
+                            </div></td> </tr> <tr> <td class="tableUnderHeadings"><strong>Command</strong></td> <td class="tableUnderHeadings"><strong>Beskrivelse</strong></td> </tr> <tr> <td><div class="command">sfc /scannow</div></td> <td>Skanner og fikser alle beskyttede Windows systemfiler for korrupsjon.</td> </tr> <tr> <td><div class="command">Dism /Online /Cleanup-Image /CheckHealth</div></td> <td>Sjekker raskt om Windows-image har korrupsjon (kun rapport).</td> </tr> <tr> <td><div class="command">Dism /Online /Cleanup-Image /ScanHealth</div></td> <td>Dypere skann enn CheckHealth.</td> </tr> <tr> <td><div class="command">Dism /Online /Cleanup-Image /RestoreHealth</div></td> <td>Skanner og fikser korrupte filer via Windows Update eller lokal kilde.</td> </tr> <tr> <td class="tableUnderHeadings" colspan="2"><b>Dism kan fikse ting som SFC ikke kan, men det er ofte greit å teste SFC først.</b></td> </tr> </tbody> </table> <table> <tbody> <tr> <td colspan="2" style="padding: 0;"><div class="tableHeading"><h2>Info Commands</h2><img src="https://www.svgrepo.com/show/509905/dropdown-arrow.svg" class="dropdown"/></div></td> </tr> <tr> <td class="tableUnderHeadings"><strong>Command</strong></td> <td class="tableUnderHeadings"><strong>Beskrivelse</strong></td> </tr> <tr> <td><div class="command">systeminfo</div></td> <td>Teknisk info om maskinens software, hardware og OS.</td> </tr> <tr> <td><div class="command">winver</div></td> <td>Viser Windows-versjon.</td> </tr> <tr> <td><div class="command">powercfg /batteryreport</div></td> <td>Sjekker batteri helse.</td> </tr> </tbody> </table> </div> </body> </html>
