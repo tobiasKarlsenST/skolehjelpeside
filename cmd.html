@@ -73,12 +73,11 @@
                     cmd.addEventListener("click", () => {
                         navigator.clipboard.writeText(cmd.textContent);
                         const original = cmd.textContent;
-                        cmd.textContent = "Copied!";
+                        cmd.textContent = "Kopiert!";
                         setTimeout(() => cmd.textContent = original, 1000);
                     });
                 });
             }
-
             loadCommands();
         </script>
     </body>
