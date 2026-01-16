@@ -167,4 +167,18 @@ td{
     text-decoration: underline !important;
     margin-bottom: 10px;
     font-weight: bold;
+
+
+}
+
+.linkNIcon{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: fit-content;
+}
+
+
+.linkIcon{
+    width: 30px;
 }
