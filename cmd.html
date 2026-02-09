@@ -18,17 +18,18 @@
             <div id="cmd-container"></div>
         </div>
         <script>
-            const sheetUrl = "https://script.googleusercontent.com/macros/echo?user_content_key=AehSKLivj4H7euyzAm0MWB3wb68Pg3FAuHhkDm82m3jI26r-q8COeny8Zc3ZW4oX1TQee0E1JAYpZeIcHWdOPJ8EfdO_aRwlFhrUbUse8iVdlQIZCf8OeyuuCqYzg0tInqvxahFZcpcpXP_UXZMYCTgve6USyuyK1ZdkmtRKtHuLGvMG-OnbiFtJ14shY4LjpTC3TMOwNuzUjZWlxgTAq1hrjoYnd7uqNNunAeHBhsyFQAfLc2kjOIWqE_28spdY_xWYdDqUir34V7j_A-zBXPO3Ga4I1aUaTw&lib=MoPesbO-_SN0qATgGoC6Hbu_f9Eepb8L8";
+            const sheetUrl = "https://script.googleusercontent.com/macros/echo?user_content_key=AehSKLgcb8v34c0trkkbtKD9o8fOdR9z0QWVQ5_A8Cg0ZpzHNyXx08H-Oyw7XTKxEw--ejVk9kWUXkUBRe6s_w-hNHbgTgvdquVKQiYQT5X0H5ciK0wLC7Uv9wfOoIyc3dFbwzeAIRVr8AK0tqvgHpvT1VYrV755u7gyaKSwwThTub0MvmvsPEf0wxMIHRm8EJt0cW9mWjs-yx0isoiAuWWd3nZXr_FJP9Mtfblu3lYGLWAqITgUEUVC_564-RzIf6LtdJDBa6uA5AGARkp3NNkL02wIEHHryQ&lib=MoPesbO-_SN0qATgGoC6Hbu_f9Eepb8L8";
         
             async function loadCommands() {
                 const res = await fetch(sheetUrl);
-                const data = await res.json();
+                const data = await res.text();
+                console.log("data: ", data);
 
                 // Grupper etter kategori
                 const categories = {};
                 data.forEach(item => {
-                    if (!categories[item.category]) categories[item.category] = [];
-                    categories[item.category].push(item);
+                    if (!categories[item.Kategori]) categories[item.Kategori] = [];
+                    categories[item.Kategori].push(item);
                 });
 
                 const container = document.getElementById("cmd-container");
@@ -50,8 +51,8 @@
 
                     items.forEach(cmd => {
                         html += `<tr>
-                                    <td><div class="command">${cmd.command}</div></td>
-                                    <td>${cmd.description}</td>
+                                    <td><div class="command">${cmd.Command}</div></td>
+                                    <td>${cmd.Beskrivelse}</td>
                                 </tr>`;
                     });
 
