@@ -22,8 +22,11 @@
         
             async function loadCommands() {
                 const res = await fetch(sheetUrl);
-                const data = await res.text();
-                console.log("data: ", data);
+                const text = await res.text();
+                console.log("text: ", text);
+
+                const data = JSON.parse(text);
+                console.log("data:, ", data)
 
                 // Grupper etter kategori
                 const categories = {};
