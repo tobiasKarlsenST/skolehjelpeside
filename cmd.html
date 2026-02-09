@@ -21,12 +21,25 @@
             const sheetUrl = "https://script.googleusercontent.com/macros/echo?user_content_key=AehSKLgcb8v34c0trkkbtKD9o8fOdR9z0QWVQ5_A8Cg0ZpzHNyXx08H-Oyw7XTKxEw--ejVk9kWUXkUBRe6s_w-hNHbgTgvdquVKQiYQT5X0H5ciK0wLC7Uv9wfOoIyc3dFbwzeAIRVr8AK0tqvgHpvT1VYrV755u7gyaKSwwThTub0MvmvsPEf0wxMIHRm8EJt0cW9mWjs-yx0isoiAuWWd3nZXr_FJP9Mtfblu3lYGLWAqITgUEUVC_564-RzIf6LtdJDBa6uA5AGARkp3NNkL02wIEHHryQ&lib=MoPesbO-_SN0qATgGoC6Hbu_f9Eepb8L8";
         
             async function loadCommands() {
-                const res = await fetch(sheetUrl);
-                const text = await res.text();
-                console.log("text: ", text);
+                const cached = localStorage.getItem('cmdData');
+                let data;
 
-                const data = JSON.parse(text);
-                console.log("data:, ", data)
+                if (cached) {
+                    console.log("using cached data");
+                    data = JSON.parse(cached);
+                }else{
+                    console.log("fetching data")
+                    const res = await fetch(sheetUrl);
+                    data = await res.json();
+                    localStorage.setItem('cmdData', JSON.stringify(data));
+                }
+                
+                renderTable(data);
+
+            }
+
+            function renderTable(data){
+                const container = document.getElementById("cmd-container")
 
                 // Grupper etter kategori
                 const categories = {};
@@ -35,12 +48,12 @@
                     categories[item.Kategori].push(item);
                 });
 
-                const container = document.getElementById("cmd-container");
 
+                let fullHTML = '';
                 for (const category in categories) {
                     const items = categories[category];
 
-                    let html = `<table>
+                    fullHTML += `<table>
                                     <tbody>
                                         <tr>
                                             <td colspan="2" style="padding:0;">
@@ -53,15 +66,17 @@
                                         </tr>`;
 
                     items.forEach(cmd => {
-                        html += `<tr>
+                        fullHTML += `<tr>
                                     <td><div class="command">${cmd.Command}</div></td>
                                     <td>${cmd.Beskrivelse}</td>
                                 </tr>`;
                     });
 
-                    html += `</tbody></table><br>`;
-                    container.innerHTML += html;
+                    fullHTML += `</tbody></table><br>`;
+                    
                 }
+
+                container.innerHTML += fullHTML;
 
                 // Copy-click
                 document.querySelectorAll(".command").forEach(cmd => {
