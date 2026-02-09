@@ -12,7 +12,7 @@
 }
 
 body{
-    
+    color: white;
 }
 
 .navBar{
@@ -128,12 +128,22 @@ a:active {
 }
 
 table, th, td {
-  border: 1px solid black;
   border-collapse: collapse;
 }
 
+.tableContent{
+    background: rgba(255, 255, 255, 0.619);
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-radius: 20px;
+}
+
+
 table{
     width: 100%;
+    color: black;
+    border-radius: 20px;
+    overflow: hidden;
 }
 
 td{
@@ -141,18 +151,25 @@ td{
 }
 
 .tableHeading{
-    background-color: black;
+    background-color: rgba(24, 24, 24, 0.63);
     color: white;
     display: flex;
     width: 100%;
     column-span: 2;
-    padding: 5px 10px;
+    padding: 10px 20px;
     align-items: center;
     justify-content: space-between;
+    backdrop-filter: blur(15px);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    font-size: 30px;
+    font-weight: 600;
 }
 
 .tableUnderHeadings{
-    background-color: rgb(226, 226, 226);
+    background-color: rgba(104, 104, 104, 0.425);
+    backdrop-filter: blur(15px);
+    color: white;
 }
 
 .dropdown{
@@ -177,7 +194,7 @@ td{
     padding:10px;
     border: 1px solid rgba(128, 128, 128, 0.299);
     box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.1), inset -6px -6px 10px 0 rgba(255, 255, 255, 0.5);
-
+    cursor: pointer;
 }
 
 .linkNIcon{
@@ -199,8 +216,9 @@ td{
     z-index: -1;
     max-width: 100%;
     object-fit: cover;
-    filter:saturate(0.9);
-    filter: blur(0.5);
+    filter:brightness(0.7)contrast(1.1);
+    
+
 }
 
 .lenkerBox{
@@ -213,4 +231,27 @@ td{
 
 h2{
     margin-bottom: 20px;
+}
+
+table{
+    /*background-color: rgba(255, 255, 255, 0.573);*/
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+}
+
+.top{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#resetCache{
+    border: none;
+    background-color: rgba(255, 255, 255, 0.724);
+    padding: 10px;
+    border-radius: 15px;
+    font-weight: 600;
+    box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.1), inset -6px -6px 10px 0 rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(15px);
 }
