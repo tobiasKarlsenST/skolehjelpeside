@@ -16,12 +16,13 @@ body{
 }
 
 .navBar{
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.717);
     display:  flex;
     align-items: center;
     justify-content: space-between;
     padding: 15px 15%;
     color: white;
+    backdrop-filter: blur(5px);
 
 }
 
@@ -35,6 +36,8 @@ body{
 
 h1{
     font-family: var(--headings);
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
 .logoImg{
@@ -42,7 +45,7 @@ h1{
 }
 
 .content{
-    padding: 50px 15%;
+    padding: 20px 15%;
     display: flex;
     flex-direction: column;
     gap: var(--gap-padding);
@@ -70,6 +73,8 @@ h1{
     gap: var(--gap-padding);
     align-items: center;
     justify-content: center;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.295);
 }
 
 .gridIcon{
@@ -159,15 +164,19 @@ td{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--gap-padding);
+
 }
 
 .lenker{
-    color: #1E88E5 !important; 
-    font-style: underline;
-    text-decoration: underline !important;
+    color: #000000 !important; 
     margin-bottom: 10px;
     font-weight: bold;
-
+    background-color: rgba(255, 255, 255, 0.548);
+    width: fit-content;
+    border-radius: 20px;
+    padding:10px;
+    border: 1px solid rgba(128, 128, 128, 0.299);
+    box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.1), inset -6px -6px 10px 0 rgba(255, 255, 255, 0.5);
 
 }
 
@@ -181,4 +190,27 @@ td{
 
 .linkIcon{
     width: 30px;
+}
+
+.background{
+    position: absolute;
+    height: 120vh;
+    width: 100%;
+    z-index: -1;
+    max-width: 100%;
+    object-fit: cover;
+    filter:saturate(0.9);
+    filter: blur(0.5);
+}
+
+.lenkerBox{
+    background-color: rgba(218, 218, 218, 0.616);
+    padding: 15px;
+    border-radius: 15px;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.295);
+}
+
+h2{
+    margin-bottom: 20px;
 }

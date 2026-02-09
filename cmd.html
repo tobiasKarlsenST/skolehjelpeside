@@ -18,20 +18,11 @@
             <div id="cmd-container"></div>
         </div>
         <script>
-            const sheetUrl = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQl4dHI0s3-qTK0QCnVSnVLyrjSIqtmb81qHASNUYAwR-kYEgOfBve_W94fflhFTs8Yg8v4j2gJYL3K/pub?output=csv";
+            const sheetUrl = "https://script.googleusercontent.com/macros/echo?user_content_key=AehSKLivj4H7euyzAm0MWB3wb68Pg3FAuHhkDm82m3jI26r-q8COeny8Zc3ZW4oX1TQee0E1JAYpZeIcHWdOPJ8EfdO_aRwlFhrUbUse8iVdlQIZCf8OeyuuCqYzg0tInqvxahFZcpcpXP_UXZMYCTgve6USyuyK1ZdkmtRKtHuLGvMG-OnbiFtJ14shY4LjpTC3TMOwNuzUjZWlxgTAq1hrjoYnd7uqNNunAeHBhsyFQAfLc2kjOIWqE_28spdY_xWYdDqUir34V7j_A-zBXPO3Ga4I1aUaTw&lib=MoPesbO-_SN0qATgGoC6Hbu_f9Eepb8L8";
         
             async function loadCommands() {
                 const res = await fetch(sheetUrl);
-                const text = await res.text();
-
-                // Del CSV i linjer
-                const lines = text.trim().split("\n");
-                const headers = lines.shift().split(","); // ["Kategori","Command","Beskrivelse"]
-
-                const data = lines.map(line => {
-                    const [category, command, description] = line.split(",");
-                    return { category, command, description };
-                });
+                const data = await res.json();
 
                 // Grupper etter kategori
                 const categories = {};
