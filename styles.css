@@ -2,13 +2,20 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Segoe UI", sans-serif;
     
 }
 
 :root{
-    --headings: 'Times New Roman', Times, serif;
+    --headings: Tahoma, sans-serif;
     --gap-padding: 12px;
+    --border-radius: 15px;
+    --glass: blur(12px);
+    --boxShadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.1), inset -6px -6px 10px 0 rgba(255, 255, 255, 0.5);
+    --txt-shadow: 2px 2px 4px rgba(0,0,0,0.15);
+
+    --glass-border: 1px solid rgba(255, 255, 255, 0.295);
+    --box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.15);
 }
 
 body{
@@ -22,7 +29,7 @@ body{
     justify-content: space-between;
     padding: 15px 15%;
     color: white;
-    backdrop-filter: blur(5px);
+    backdrop-filter: var(--glass);
 
 }
 
@@ -37,7 +44,7 @@ body{
 h1{
     font-family: var(--headings);
     color: white;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    text-shadow: var(--txt-shadow);
 }
 
 .logoImg{
@@ -64,7 +71,7 @@ h1{
 
 .gridItem{
     background-color: black;
-    border-radius: 10px;
+    border-radius: var(--border-radius);
     height: 200px;
     padding: var(--gap-padding);
     cursor: pointer;
@@ -73,8 +80,9 @@ h1{
     gap: var(--gap-padding);
     align-items: center;
     justify-content: center;
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.295);
+    backdrop-filter: var(--glass);
+    border: var(--glass-border);
+    box-shadow: var(--box-shadow);
 }
 
 .gridIcon{
@@ -123,7 +131,7 @@ a:active {
     background-color: #f5f0ed;
     width: fit-content;
     padding: 5px;
-    border: 1px solid #c4bebc;
+    border: var(--glass-border);
     cursor: pointer;
 }
 
@@ -133,17 +141,18 @@ table, th, td {
 
 .tableContent{
     background: rgba(255, 255, 255, 0.619);
-    border-bottom-right-radius: 20px;
-    border-bottom-left-radius: 20px;
-    border-radius: 20px;
+    border-bottom-right-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
+    border-radius: var(--border-radius);
 }
 
 
 table{
     width: 100%;
     color: black;
-    border-radius: 20px;
+    border-radius: var(--border-radius);
     overflow: hidden;
+    box-shadow: var(--box-shadow);
 }
 
 td{
@@ -159,16 +168,16 @@ td{
     padding: 10px 20px;
     align-items: center;
     justify-content: space-between;
-    backdrop-filter: blur(15px);
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    backdrop-filter: var(--glass);
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
     font-size: 30px;
     font-weight: 600;
 }
 
 .tableUnderHeadings{
     background-color: rgba(104, 104, 104, 0.425);
-    backdrop-filter: blur(15px);
+    backdrop-filter: var(--glass);
     color: white;
 }
 
@@ -190,10 +199,10 @@ td{
     font-weight: bold;
     background-color: rgba(255, 255, 255, 0.548);
     width: fit-content;
-    border-radius: 20px;
+    border-radius: var(--border-radius);
     padding:10px;
-    border: 1px solid rgba(128, 128, 128, 0.299);
-    box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.1), inset -6px -6px 10px 0 rgba(255, 255, 255, 0.5);
+    border: var(--glass-border);
+    box-shadow: var(--boxShadow);
     cursor: pointer;
 }
 
@@ -224,19 +233,20 @@ td{
 .lenkerBox{
     background-color: rgba(218, 218, 218, 0.616);
     padding: 15px;
-    border-radius: 15px;
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.295);
+    border-radius: var(--border-radius);
+    backdrop-filter: var(--glass);
+    border: var(--glass-border);
 }
 
 h2{
     margin-bottom: 20px;
+    text-shadow: var(--txt-shadow)
 }
 
 table{
     /*background-color: rgba(255, 255, 255, 0.573);*/
-    backdrop-filter: blur(15px);
-    border-radius: 20px;
+    backdrop-filter: var(--glass);
+    border-radius: var(--border-radius);
 }
 
 .top{
@@ -250,8 +260,17 @@ table{
     border: none;
     background-color: rgba(255, 255, 255, 0.724);
     padding: 10px;
-    border-radius: 15px;
+    border-radius: var(--border-radius);
     font-weight: 600;
-    box-shadow: inset 6px 6px 10px 0 rgba(0, 0, 0, 0.1), inset -6px -6px 10px 0 rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(15px);
+    box-shadow: var(--boxShadow);
+    backdrop-filter: var(--glass);
+}
+
+.navButton{
+    border: none;
+    background-color: rgb(255, 255, 255);
+    padding: 5px 10px;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    backdrop-filter: var(--glass);
 }
