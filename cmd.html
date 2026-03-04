@@ -33,7 +33,8 @@
                 }else{
                     console.log("fetching data")
                     const res = await fetch(sheetUrl);
-                    data = await res.json();
+                    const fullData = await res.json();
+                    data = fullData.CMD;
                     console.log("Saving to localStorage:", data);
                     localStorage.setItem('cmdData', JSON.stringify(data));
                 }
